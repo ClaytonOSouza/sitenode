@@ -1,7 +1,7 @@
 podTemplate(
     name: 'devopsclayton', 
     namespace: 'default', 
-    label: LABEL_ID, 
+    label: worker, 
     containers: [
         containerTemplate(alwaysPullImage: false, args: 'cat', command: '/bin/sh -c', envVars: [], image: 'docker', livenessProbe: containerLivenessProbe(execArgs: '', failureThreshold: 0, initialDelaySeconds: 0, periodSeconds: 0, successThreshold: 0, timeoutSeconds: 0), name: 'docker-container', ports: [], privileged: false, resourceLimitCpu: '', resourceLimitMemory: '', resourceRequestCpu: '', resourceRequestMemory: '', shell: null, ttyEnabled: true, workingDir: '/home/jenkins'),
         containerTemplate(args: 'cat', command: '/bin/sh -c', image: 'lachlanevenson/k8s-helm:v2.11.0', name: 'helm-container', ttyEnabled: true)
@@ -23,7 +23,7 @@ podTemplate(
     def INGRESS_HOST = "questcode.org"
 
     // Start Pipeline
-    node(LABEL_ID) {
+    node(worker) {
         stage('Checkout') {
             echo 'Iniciando Clone do Repositório'
             REPOS = checkout scm

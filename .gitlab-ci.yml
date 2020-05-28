@@ -1,0 +1,59 @@
+image: node
+
+stages:
+   - test
+   - package
+   - scan
+   - deploy 
+
+before_script:
+   - whoami
+   - pwd
+   
+teste site:
+  stage: test
+  before_script:
+   - npm install -g broken-link-checker
+  script:
+   - sudo npm install && run start &
+   
+package site:
+  stage: package
+  cache:
+    key: site-package
+    policy: push
+    paths:
+      - ./builds/clayton.souza/sitenode
+  artifacts:
+    when: always
+    expire_in: 2 hrs
+    expose_as: 'artifact 1'
+    paths: ['path/app.js']
+  script:
+    - ls -lrth
+    - pwd
+    - npm --version  
+    - npm install
+    
+scan site:
+  stage: scan
+  when: always
+  before_script:
+   - npm install -g snyk
+  script:
+    - ls -lrth
+    - pwd
+    - npm --version  
+    - npm install
+
+deploy site:
+  stage: deploy
+  script:
+    - npm install --global surge
+    - sudo surge --project ./builds/clayton.souza/sitenode --http://localhost:8080
+  after_script:
+    - whoami
+  environment:
+    name: staging
+  only:
+    - master

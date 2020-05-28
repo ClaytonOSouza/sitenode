@@ -1,0 +1,30 @@
+{
+  "name": "nojejenkins",
+  "version": "1.0.0",
+  "description": "claytonprojeto",
+  "main": "app.js",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "mongoose": "^5.9.16",
+    "winston": "^3.2.1",
+    "yup": "^0.28.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/clayton.souza/nojejenkins.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/clayton.souza/nojejenkins/issues"
+  },
+  "homepage": "https://gitlab.com/clayton.souza/nojejenkins#readme"
+}

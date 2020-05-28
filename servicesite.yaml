@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sitehomol
+  labels:
+    app: sitehomol
+spec:
+  ports:
+    - protocol: TCP     
+      port: 80
+      targetPort: 8080
+  selector:
+    app: sitehomol
+    tier: frontend
+  type: NodePort
+

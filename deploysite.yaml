@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sitehomol
+  labels:
+    app: sitehomol
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sitehomol
+        tier: frontend
+    spec:
+      containers:
+      - image: claytondevops/nodejenkins:30
+        name: sitehomol
+        ports:
+        - containerPort: 80
+          name: sitehomol
+        volumeMounts:
+        - name: storage
+          mountPath: /var/www/html
+          subPath: sitehomol
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: nfs-wordpress

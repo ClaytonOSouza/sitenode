@@ -1,6 +1,6 @@
 steps:
   # build the container image
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/sitenode-cloud-run:${SHORT_SHA}', '.']
   # push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'

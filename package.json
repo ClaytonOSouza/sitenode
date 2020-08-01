@@ -11,7 +11,7 @@
     "helmet": "^3.23.1",
     "mongoose": "^5.9.19",
     "winston": "^3.2.1",
-    "yup": "^0.28.5"
+    "yup": "^0.29.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^2.1.0",

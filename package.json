@@ -10,7 +10,7 @@
     "express": "^4.17.1",
     "helmet": "^3.23.1",
     "mongoose": "^5.9.19",
-    "winston": "^3.2.1",
+    "winston": "^3.3.3",
     "yup": "^0.28.5"
   },
   "devDependencies": {
